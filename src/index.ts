@@ -15,8 +15,8 @@ async function run() {
         const releases = release.filter((release: any) => {
             (!release.draft && !release.prerelease)
         });
-        if (release.length > 0) {
-            core.info(`Find release count: ${release.length}`);
+        if (releases.length > 0) {
+            core.info(`Find release count: ${releases.length}`);
             await dropRelease(releases, Input.Release.KEEP_COUNT + 1, Input.Release.DROP_TAG);
         } else {
             core.warning(`No release found, skip action.`);
